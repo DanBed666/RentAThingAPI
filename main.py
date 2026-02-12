@@ -1,14 +1,14 @@
 import pandas
+from fastapi import FastAPI
 
+app = FastAPI()
 
-def print_hi(name):
-
-    print(f'Hi, {name}')
+@app.get("/")
+async def root():
+    return {"message": "Hello WOrld"}
 
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
 
     excel_data = pandas.read_csv('data/users.csv')
 
