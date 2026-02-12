@@ -1,6 +1,7 @@
 import pandas
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from models import User
 
 app = FastAPI()
 
@@ -10,7 +11,8 @@ def get_users():
     df = pandas.read_csv('data/users.csv')
 
     for i in range(df.shape[0]):
-        users_list.append(str(df['id'][i]) + " " + df['name'][i] + " " + df['surname'][i] + " " + str(df['age'][i]))
+        user = User(int(df['id'][i]), df['name'][i], df['surname'][i], int(df['age'][i]))
+        users_list.append(user.__dict__)
 
     return users_list
 
