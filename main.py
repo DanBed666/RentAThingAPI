@@ -1,9 +1,11 @@
 import pandas
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from models import User
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
+templates = Jinja2Templates('templates')
 
 def get_users():
 
@@ -17,8 +19,8 @@ def get_users():
     return users_list
 
 @app.get("/")
-async def root():
-    return {"message": "Homepage"}
+async def root(request: Request):
+    return templates.TemplateResponse(request=request, name='index.html')
 
 
 @app.get("/users")
