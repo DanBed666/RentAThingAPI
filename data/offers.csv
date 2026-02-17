@@ -1,8 +1,8 @@
 userId,offerId,title,description,price,offerCreateDate
-1,1,Wiertarka,Mocna wiertarka udarowa do wiercenia,30,2026-02-13T18:45:56Z
-1,2,Klucz nr 18,Klucz nr 18 płasko oczkowy do odkręcania nakrętek,20,2026-02-13T20:45:26Z
-2,3,Łopata,Wypożyczę łopatę do kopania dołów,14,2026-02-14T22:05:58Z
-2,4,Sekator,Sekator do przycinania gałęzi,18,2026-02-15T07:34:46Z
-3,5,Piła,Wynajmę piłę do cięcia drzewa tanio,25,2026-02-15T09:48:28Z
-3,6,Wkrętaki i końcówki,Zestaw uniwersalny wkrętaków wraz z końcówkami,33,2026-02-15T13:27:03Z
-1,7,Grabie,Grabie 6 zębów do prac ogrodniczych,16,2026-02-15T16:12:17Z
+1,1,Wiertarka,Mocna wiertarka udarowa do wiercenia,30,2026-02-13T18:45:56+01:00
+1,2,Klucz nr 18,Klucz nr 18 płasko oczkowy do odkręcania nakrętek,20,2026-02-13T20:45:26+01:00
+2,3,Łopata,Wypożyczę łopatę do kopania dołów,14,2026-02-14T22:05:58+01:00
+2,4,Sekator,Sekator do przycinania gałęzi,18,2026-02-15T07:34:46+01:00
+3,5,Piła,Wynajmę piłę do cięcia drzewa tanio,25,2026-02-15T09:48:28+01:00
+3,6,Wkrętaki i końcówki,Zestaw uniwersalny wkrętaków wraz z końcówkami,33,2026-02-15T13:27:03+01:00
+1,7,Grabie,Grabie 6 zębów do prac ogrodniczych,16,2026-02-15T16:12:17+01:00
