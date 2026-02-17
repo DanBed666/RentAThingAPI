@@ -1,11 +1,22 @@
-from datetime import datetime
+from dataclasses import dataclass
 
+@dataclass
 class User:
 
-    def __init__(self, user_id: int, name: str, surname: str, age: int, email: str, register_date: str):
-        self.user_id = user_id
-        self.name = name
-        self.surname = surname
-        self.age = age
-        self.email = email
-        self.register_date = register_date
+    id: int = 0
+    name: str = ""
+    surname: str = ""
+    age: int = ""
+    email: str = ""
+    registerDate: str = ""
+
+
+@dataclass
+class Offers:
+
+    userId: int = 0
+    offerId: int = 0
+    title: str = ""
+    description: str = ""
+    price: int = 0
+    offerCreateDate: str = ""
