@@ -1,24 +1,11 @@
-import pandas
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from models import User
 from fastapi.templating import Jinja2Templates
+import getdata
 
 
 app = FastAPI()
 templates = Jinja2Templates('templates')
-
-def get_users():
-
-    users_list = []
-    df = pandas.read_csv('data/users.csv')
-
-    for i in range(df.shape[0]):
-
-        user = User(int(df['id'][i]), df['name'][i], df['surname'][i], int(df['age'][i]), df['email'][i], df['registerDate'][i])
-        users_list.append(user.__dict__)
-
-    return users_list
 
 @app.get("/")
 async def root(request: Request):
@@ -27,5 +14,5 @@ async def root(request: Request):
 
 @app.get("/users")
 async def root():
-    return JSONResponse(content=get_users(), status_code=200)
+    return JSONResponse(content=getdata.get_users(), status_code=200)
 
