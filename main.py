@@ -16,3 +16,7 @@ async def root(request: Request):
 async def root():
     return JSONResponse(content=getdata.get_users(), status_code=200)
 
+@app.get("/offers")
+async def root():
+    return JSONResponse(content=getdata.get_offers(), status_code=200)
+

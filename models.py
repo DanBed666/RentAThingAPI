@@ -12,11 +12,12 @@ class User:
 
 
 @dataclass
-class Offers:
+class Offer:
 
     userId: int = 0
     offerId: int = 0
     title: str = ""
     description: str = ""
-    price: int = 0
+    price: float = 0.0
     offerCreateDate: str = ""
+    isOfferEnd: bool = True
