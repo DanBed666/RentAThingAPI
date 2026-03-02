@@ -1,26 +1,26 @@
+import dataclasses
 import pandas
-from models import User, Offer
 
-def get_users():
+def get_elements(filename, classname):
 
     users_list = []
-    df = pandas.read_csv('data/users.csv')
+    df = pandas.read_csv(filename)
+
+    print(df.shape)
 
     for i in range(df.shape[0]):
 
-        user = User(int(df['id'][i]), df['name'][i], df['surname'][i], int(df['age'][i]), df['email'][i], df['registerDate'][i])
-        users_list.append(user.__dict__)
+        element = to_obj(df.iloc[i], classname)
+        users_list.append(element.__dict__)
 
     return users_list
 
-def get_offers():
+def to_obj(data, classname):
 
-    offers_list = []
-    df = pandas.read_csv('data/offers.csv')
+    element_dict = {}
 
-    for i in range(df.shape[0]):
+    for field in dataclasses.fields(classname):
 
-        offer = Offer(int(df['userId'][i]), int(df['offerId'][i]), df['title'][i], df['description'][i], df['price'][i], df['offerCreateDate'][i], bool(df['isOfferEnd'][i]))
-        offers_list.append(offer.__dict__)
+        element_dict[field.name] = data[field.name]
 
-    return offers_list
+    return classname(**element_dict)
