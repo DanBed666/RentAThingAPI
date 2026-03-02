@@ -19,8 +19,16 @@ def to_obj(data, classname):
 
     element_dict = {}
 
+    types = [int, bool, float]
+
     for field in dataclasses.fields(classname):
 
-        element_dict[field.name] = data[field.name]
+        for t in types:
+
+            if field.type is t:
+                element_dict[field.name] = t(data[field.name])
+                break
+            else:
+                element_dict[field.name] = data[field.name]
 
     return classname(**element_dict)
