@@ -23,9 +23,8 @@ def to_obj(data, classname):
 
     for field in dataclasses.fields(classname):
 
-        for t in types:
-
-            if not pandas.isna(data[field.name]):
+        if not pandas.isna(data[field.name]):
+            for t in types:
                 try:
                     if field.type is t:
                         element_dict[field.name] = t(data[field.name])
@@ -34,7 +33,7 @@ def to_obj(data, classname):
                         element_dict[field.name] = data[field.name]
                 except ValueError:
                     element_dict[field.name] = field.default
-            else:
-                element_dict[field.name] = field.default
+        else:
+            element_dict[field.name] = field.default
 
     return classname(**element_dict)
