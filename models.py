@@ -4,11 +4,11 @@ from dataclasses import dataclass
 class User:
 
     id: int = 0
-    name: str = ""
-    surname: str = ""
-    age: int = ""
-    email: str = ""
-    registerDate: str = ""
+    name: str = "Brak"
+    surname: str = "Brak"
+    age: int = 0
+    email: str = "Brak"
+    registerDate: str = "Brak"
 
 
 @dataclass
@@ -16,8 +16,8 @@ class Offer:
 
     userId: int = 0
     offerId: int = 0
-    title: str = ""
-    description: str = ""
+    title: str = "Brak"
+    description: str = "Brak"
     price: float = 0.0
-    offerCreateDate: str = ""
+    offerCreateDate: str = "Brak"
     isOfferEnd: bool = True
