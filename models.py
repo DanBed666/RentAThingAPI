@@ -3,12 +3,13 @@ from dataclasses import dataclass
 @dataclass
 class User:
 
-    id: int = 0
+    uId: int = 0
     name: str = "Brak"
     surname: str = "Brak"
-    age: int = 0
-    email: str = "Brak"
+    username: str = "Brak"
     registerDate: str = "Brak"
+    birthDate: str = "Brak"
+    profilePhotoLink: str = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
 
 
 @dataclass
