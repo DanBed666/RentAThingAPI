@@ -4,14 +4,12 @@ from fastapi.templating import Jinja2Templates
 from models import User, Offer
 import getdata
 
-
 app = FastAPI()
 templates = Jinja2Templates('templates')
 
 @app.get("/")
 async def root(request: Request):
     return templates.TemplateResponse(request=request, name='index.html')
-
 
 @app.get("/users")
 async def root():
