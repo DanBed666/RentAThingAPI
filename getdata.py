@@ -6,8 +6,6 @@ def get_elements(filename, classname):
     users_list = []
     df = pandas.read_csv(filename)
 
-    print(df.shape)
-
     for i in range(df.shape[0]):
 
         element = to_obj(df.iloc[i], classname)
