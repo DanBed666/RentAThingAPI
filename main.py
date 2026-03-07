@@ -12,10 +12,10 @@ async def root(request: Request):
     return templates.TemplateResponse(request=request, name='index.html')
 
 @app.get("/users")
-async def root():
+async def get_users():
     return JSONResponse(content=getdata.get_elements('data/users.csv', User), status_code=200)
 
 @app.get("/offers")
-async def root():
+async def get_offers():
     return JSONResponse(content=getdata.get_elements('data/offers.csv', Offer), status_code=200)
 
