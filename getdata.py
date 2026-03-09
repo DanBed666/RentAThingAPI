@@ -32,15 +32,15 @@ def get_with_query(file_name, class_name, field_name, value):
 def get_by_id(file_name, class_name, element_id):
 
     df = pandas.read_csv(file_name)
-    element = ""
+    element = {"detail": "Not found"}
 
     for i in range(df.shape[0]):
 
         if df.iloc[i]['id'] == element_id:
-            element = to_obj(df.iloc[i], class_name)
+            element = to_obj(df.iloc[i], class_name).__dict__
             break
 
-    return element.__dict__
+    return element
 
 def to_obj(data, class_name):
 
