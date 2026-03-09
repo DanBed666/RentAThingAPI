@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from config import get_var
 
+
 @dataclass
 class User:
 

@@ -1,6 +1,7 @@
 import dataclasses
 import pandas
 
+
 def get_elements(filename, classname):
 
     users_list = []
@@ -12,6 +13,20 @@ def get_elements(filename, classname):
         users_list.append(element.__dict__)
 
     return users_list
+
+
+def get_one_element(filename, classname, element_id):
+
+    df = pandas.read_csv(filename)
+    element = ""
+
+    for i in range(df.shape[0]):
+
+        if df.iloc[i]['id'] == element_id:
+            element = to_obj(df.iloc[i], classname)
+            break
+
+    return element.__dict__
 
 def to_obj(data, classname):
 

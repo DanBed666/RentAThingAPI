@@ -1,7 +1,9 @@
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv('xvariables.env')
+
 
 def get_var(key_name):
 
