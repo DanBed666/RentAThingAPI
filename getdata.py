@@ -2,7 +2,7 @@ import dataclasses
 import pandas
 
 
-def get_elements(filename, classname):
+def get_all(filename, classname):
 
     users_list = []
     df = pandas.read_csv(filename)
