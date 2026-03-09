@@ -25,8 +25,14 @@ async def get_user(user_id: int):
 
 
 @app.get("/offers")
-async def get_offers():
-    return JSONResponse(content=getdata.get_all('data/offers.csv', Offer), status_code=200)
+async def get_offers(userId: int = None):
+
+    if userId is None:
+        content = getdata.get_all('data/offers.csv', Offer)
+    else:
+        content = getdata.get_with_query('data/offers.csv', Offer, "userId", userId)
+
+    return JSONResponse(content=content, status_code=200)
 
 
 @app.get("/offers/{offer_id}")

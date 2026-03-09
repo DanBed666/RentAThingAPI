@@ -15,6 +15,20 @@ def get_all(file_name, class_name):
     return users_list
 
 
+def get_with_query(file_name, class_name, field_name, value):
+
+    users_list = []
+    df = pandas.read_csv(file_name)
+
+    for i in range(df.shape[0]):
+
+        if df.iloc[i][f'{field_name}'] == value:
+            element = to_obj(df.iloc[i], class_name)
+            users_list.append(element.__dict__)
+
+    return users_list
+
+
 def get_by_id(file_name, class_name, element_id):
 
     df = pandas.read_csv(file_name)
