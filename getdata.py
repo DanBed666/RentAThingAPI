@@ -1,9 +1,6 @@
 import dataclasses
 import pandas
 
-from models import User
-
-
 def get_elements(filename, classname):
 
     users_list = []
@@ -38,27 +35,3 @@ def to_obj(data, classname):
             element_dict[field.name] = field.default
 
     return classname(**element_dict)
-
-if __name__ == "__main__":
-
-    df = pandas.read_csv("data/offers.csv")
-
-    e = df.iloc[0:4]
-
-    #element = to_obj(e, User)
-    #print(element.__dict__)
-
-    ile = 0
-
-    for i in range(df.shape[0]):
-
-        if df.iloc[i]['userId'] == 1:
-            print(df.iloc[i])
-            ile = ile + 1
-
-    print(ile)
-
-        #element = to_obj(df.iloc[i], User)
-        #print(df.iloc[i])
-        #print(element.__dict__)
-
