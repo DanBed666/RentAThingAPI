@@ -4,7 +4,7 @@ from config import get_var
 @dataclass
 class User:
 
-    uId: int = 0
+    id: int = 0
     name: str = get_var("DEFAULT_INFO")
     surname: str = get_var("DEFAULT_INFO")
     username: str = get_var("DEFAULT_INFO")
@@ -17,7 +17,7 @@ class User:
 class Offer:
 
     userId: int = 0
-    offerId: int = 0
+    id: int = 0
     title: str = get_var("DEFAULT_INFO")
     description: str = get_var("DEFAULT_INFO")
     price: float = 0.0
