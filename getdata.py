@@ -15,7 +15,7 @@ def get_elements(filename, classname):
     return users_list
 
 
-def get_one_element(filename, classname, element_id):
+def get_by_id(filename, classname, element_id):
 
     df = pandas.read_csv(filename)
     element = ""

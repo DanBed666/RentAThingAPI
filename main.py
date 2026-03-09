@@ -21,7 +21,7 @@ async def get_users():
 
 @app.get("/users/{user_id}")
 async def get_users(user_id: int):
-    return JSONResponse(content=getdata.get_one_element('data/users.csv', User, user_id), status_code=200)
+    return JSONResponse(content=getdata.get_by_id('data/users.csv', User, user_id), status_code=200)
 
 
 @app.get("/offers")
@@ -31,5 +31,5 @@ async def get_offers():
 
 @app.get("/offers/{offer_id}")
 async def get_offers(offer_id: int):
-    return JSONResponse(content=getdata.get_one_element('data/offers.csv', Offer, offer_id), status_code=200)
+    return JSONResponse(content=getdata.get_by_id('data/offers.csv', Offer, offer_id), status_code=200)
 
