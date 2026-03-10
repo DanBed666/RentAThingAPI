@@ -2,8 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from models import User, Offer
-import getdata
-
+from getdata import get_all, get_with_query, get_by_id
 
 app = FastAPI()
 templates = Jinja2Templates('templates')
@@ -16,26 +15,34 @@ async def root(request: Request):
 
 @app.get("/users")
 async def get_users():
-    return JSONResponse(content=getdata.get_all('data/users.csv', User), status_code=200)
+
+    content = get_all('data/users.csv', User)
+
+    return JSONResponse(content=content, status_code=200)
 
 
 @app.get("/users/{user_id}")
 async def get_user(user_id: int):
-    return JSONResponse(content=getdata.get_by_id('data/users.csv', User, user_id), status_code=200)
+
+    content = get_by_id('data/users.csv', User, user_id)
+
+    return JSONResponse(content=content, status_code=200)
 
 
 @app.get("/offers")
 async def get_offers(userId: int = None):
 
     if userId is None:
-        content = getdata.get_all('data/offers.csv', Offer)
+        content = get_all('data/offers.csv', Offer)
     else:
-        content = getdata.get_with_query('data/offers.csv', Offer, "userId", userId)
+        content = get_with_query('data/offers.csv', Offer, "userId", userId)
 
     return JSONResponse(content=content, status_code=200)
 
 
 @app.get("/offers/{offer_id}")
 async def get_offer(offer_id: int):
-    return JSONResponse(content=getdata.get_by_id('data/offers.csv', Offer, offer_id), status_code=200)
 
+    content = get_by_id('data/offers.csv', Offer, offer_id)
+
+    return JSONResponse(content=content, status_code=200)
